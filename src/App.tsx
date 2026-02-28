@@ -48,8 +48,8 @@ function App() {
     else setDrafts([]);
   }, [user]);
 
-  const onSubmitSignUpNewUser = async (e) => {
-    e.preventDefault();
+  const onSubmitSignUpNewUser = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -70,8 +70,8 @@ function App() {
     }
   };
 
-  const onSubmitLoginUser = async (e) => {
-    e.preventDefault();
+  const onSubmitLoginUser = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -103,8 +103,8 @@ function App() {
     }
   }
 
-  const pushText = async (e) => {
-    e.preventDefault();
+  const pushText = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (!user) return;
 
     try {
