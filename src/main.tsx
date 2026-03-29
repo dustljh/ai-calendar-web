@@ -15,15 +15,12 @@ import { ThemeProvider } from "@/components/theme-provider.tsx"
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/ai-calendar-web">
         <Routes>
           <Route element={<RootLayout />}>
             <Route path="/" element={<App />} />
 
-            {/* ID 없이 처음 접속했을 때 */}
             <Route path="/ai-calendar" element={<AiCalendar />} />
-
-            {/* 특정 채팅 세션(ID)으로 접속했을 때 */}
             <Route path="/ai-calendar/:chatId" element={<AiCalendar />} />
 
             <Route path="/sign-up" element={<SignUp />} />
